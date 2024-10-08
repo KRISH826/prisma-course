@@ -16,7 +16,7 @@ export const getPosts = async (req, res) => {
                         id: "asc"
                     },
                 }
-            }
+            },
         });
         return res.json({ status: 200, data: posts, message: "Success" });
     } catch (error) {
