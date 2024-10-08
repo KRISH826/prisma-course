@@ -1,7 +1,16 @@
 import prisma from "../DB/db.config.js";
 
 export const getUser = async (req, res) => {
-    const users = await prisma.user.findMany({});
+    const users = await prisma.user.findMany({
+        include: {
+            posts: {
+                select: {
+                    title: true,
+                    comment_count: true
+                }
+            }
+        }
+    });
 
     return res.json({ status: 200, data: users, message: "All users found" })
 }
