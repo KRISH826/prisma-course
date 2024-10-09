@@ -7,9 +7,9 @@ export const getComments = async (req, res) => {
                 post: {
                     include: {
                         user: true
-                    }
+                    },
                 }
-            }
+            },
         });
         return res.json({ status: 200, data: posts, message: "Success" });
     } catch (error) {
